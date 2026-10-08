@@ -35,7 +35,9 @@ class CourseToolkitTest {
     * */
     @Test
     void returnsFalseForNonPrimeNumbers() {
-        boolean result = !CourseToolkit.isPrime(1);
+        boolean result = true;
+
+        result &= !CourseToolkit.isPrime(1);
         result &= !CourseToolkit.isPrime(4);
         result &= !CourseToolkit.isPrime(-1);
         result &= !CourseToolkit.isPrime(0);
@@ -46,7 +48,9 @@ class CourseToolkitTest {
 
     @Test
     void returnsTrueForPrimeNumber() {
-        boolean result = CourseToolkit.isPrime(2);
+        boolean result = true;
+
+        result &= CourseToolkit.isPrime(2);
         result &= CourseToolkit.isPrime(5);
         result &= CourseToolkit.isPrime(23);
         result &= CourseToolkit.isPrime(7);
@@ -118,18 +122,63 @@ class CourseToolkitTest {
     }
 
     @Test
-    void throwExceptionOnEmptyString() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            CourseToolkit.isPalindrome("");
-        });
+    void rejectsEmptyString() {
+        assertThrows(IllegalArgumentException.class, () -> CourseToolkit.isPalindrome(""));
     }
 
     @Test
-    void throwExceptionOnNullString() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            CourseToolkit.isPalindrome(null);
-        });
+    void rejectsNullString() {
+        assertThrows(IllegalArgumentException.class, () -> CourseToolkit.isPalindrome(null));
     }
 
+    /*
+     * Тесты для isPalindrome()
+     * */
+    @Test
+    void returnsAverageFibonacciToEight() {
+        double result = CourseToolkit.average(new int[]{1, 1, 2, 3, 5, 8, 13, 21});
 
+        assertEquals(6.75, result, 1e-9);
+    }
+
+    @Test
+    void returnsAverageZeroAndOne() {
+        double result = CourseToolkit.average(new int[]{1, 0});
+
+        assertEquals(0.5, result, 1e-9);
+    }
+
+    @Test
+    void returnsAverageCollatzForSeven() {
+        double result = CourseToolkit.average(new int[]{7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1});
+
+        assertEquals(16.9411764706, result, 1e-9);
+    }
+
+    @Test
+    void returnsAverageForZeroAndTen() {
+        double result = CourseToolkit.average(new int[]{0, 10});
+
+        assertEquals(5.0, result, 1e-9);
+    }
+
+    @Test
+    void arrayRemainsUnchanged() {
+        int[] array = {1, 1, 2, 3, 5, 8, 13, 21};
+        CourseToolkit.average(array);
+
+        assertArrayEquals(new int[]{1, 1, 2, 3, 5, 8, 13, 21}, array);
+    }
+
+    @Test
+    void rejectsNullArray() {
+        assertThrows(IllegalArgumentException.class, () -> CourseToolkit.average(null));
+    }
+
+    @Test
+    void rejectsZeroLengthArray() {
+        int[] array = new int[0];
+
+        assertThrows(IllegalArgumentException.class, () -> CourseToolkit.average(array));
+    }
 }
