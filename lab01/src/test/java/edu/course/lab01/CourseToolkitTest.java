@@ -1,6 +1,5 @@
 package edu.course.lab01;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -121,14 +120,14 @@ class CourseToolkitTest {
     @Test
     void throwExceptionOnEmptyString() {
         assertThrows(IllegalArgumentException.class, () -> {
-            boolean result = CourseToolkit.isPalindrome("");
+            CourseToolkit.isPalindrome("");
         });
     }
 
     @Test
     void throwExceptionOnNullString() {
         assertThrows(IllegalArgumentException.class, () -> {
-            boolean result = CourseToolkit.isPalindrome(null);
+            CourseToolkit.isPalindrome(null);
         });
     }
 
