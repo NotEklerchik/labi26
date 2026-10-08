@@ -27,4 +27,16 @@ public final class CourseToolkit {
 
         return true;
     }
+
+    public static boolean isPalindrome(String text) {
+        if (text == null || text.isEmpty()) throw new IllegalArgumentException();
+
+        for (int i = 0, j = text.length() - 1; i <= (text.length() - 1) / 2; i++, j--) {
+            if (text.charAt(i) != text.charAt(j)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
