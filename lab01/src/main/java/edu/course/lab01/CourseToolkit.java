@@ -29,7 +29,7 @@ public final class CourseToolkit {
     }
 
     public static boolean isPalindrome(String text) {
-        if (text == null || text.isEmpty()) throw new IllegalArgumentException();
+        if (text == null || text.isEmpty()) throw new IllegalArgumentException("Text cannot be empty");
 
         for (int i = 0, j = text.length() - 1; i <= (text.length() - 1) / 2; i++, j--) {
             if (text.charAt(i) != text.charAt(j)) {
@@ -52,7 +52,43 @@ public final class CourseToolkit {
             return (double) sum / values.length;
 
         } else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Array is empty or null");
+
+        }
+    }
+
+    public static int min(int[] values) {
+        if (values != null && values.length != 0) {
+            int min = Integer.MAX_VALUE;
+
+            for (int i = 1; i < values.length; i++) {
+                if (values[i] < min) {
+                    min = values[i];
+                }
+            }
+
+            return min;
+
+        } else {
+            throw new IllegalArgumentException("Array is empty or null");
+
+        }
+    }
+
+    public static int max(int[] values) {
+        if (values != null && values.length != 0) {
+            int max = Integer.MIN_VALUE;
+
+            for (int i = 1; i < values.length; i++) {
+                if (values[i] > max) {
+                    max = values[i];
+                }
+            }
+
+            return max;
+
+        } else {
+            throw new IllegalArgumentException("Array is empty or null");
 
         }
     }
