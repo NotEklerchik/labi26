@@ -34,7 +34,7 @@ public class ProjectTaskTest {
         TaskStatus expectedStatus = TaskStatus.PENDING;
         projectTask.changeStatus(TaskStatus.PENDING);
 
-        assertEquals(TaskStatus.PENDING, projectTask.getStatus());
+        assertEquals(expectedStatus, projectTask.getStatus());
     }
 
     @Test
