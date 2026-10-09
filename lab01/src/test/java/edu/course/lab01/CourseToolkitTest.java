@@ -181,4 +181,62 @@ class CourseToolkitTest {
 
         assertThrows(IllegalArgumentException.class, () -> CourseToolkit.average(array));
     }
+
+    /*
+     * Тесты для min()
+     * */
+    @Test
+    void rejectsNullArrayForMin() {
+        assertThrows(IllegalArgumentException.class, () -> CourseToolkit.min(null));
+    }
+
+    @Test
+    void rejectsZeroLengthArrayForMin() {
+        int[] array = new int[0];
+
+        assertThrows(IllegalArgumentException.class, () -> CourseToolkit.min(array));
+    }
+
+    @Test
+    void returnsMinCollatzForSeven() {
+        int result = CourseToolkit.min(new int[]{7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1});
+
+        assertEquals(1, result);
+    }
+
+    @Test
+    void returnsMinFibonacciToEight() {
+        double result = CourseToolkit.min(new int[]{1, 1, 2, 3, 5, 8, 13, 21});
+
+        assertEquals(1, result);
+    }
+
+    /*
+     * Тесты для max()
+     * */
+    @Test
+    void rejectsNullArrayForMax() {
+        assertThrows(IllegalArgumentException.class, () -> CourseToolkit.max(null));
+    }
+
+    @Test
+    void rejectsZeroLengthArrayForMax() {
+        int[] array = new int[0];
+
+        assertThrows(IllegalArgumentException.class, () -> CourseToolkit.max(array));
+    }
+
+    @Test
+    void returnsMaxCollatzForSeven() {
+        int result = CourseToolkit.max(new int[]{7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1});
+
+        assertEquals(52, result);
+    }
+
+    @Test
+    void returnsMaxFibonacciToEight() {
+        double result = CourseToolkit.max(new int[]{1, 1, 2, 3, 5, 8, 13, 21});
+
+        assertEquals(21, result);
+    }
 }
