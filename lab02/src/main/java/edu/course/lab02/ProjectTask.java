@@ -6,12 +6,13 @@ public class ProjectTask {
     private TaskStatus status;
     private int estimatedHours;
 
-    public ProjectTask(String id, String title, int estimatedHours) {
+    public ProjectTask(String title, int estimatedHours) {
         if (estimatedHours < 0) throw new IllegalArgumentException("Estimated hours must be positive");
         if (title == null || title.isEmpty()) throw new IllegalArgumentException("Title cannot be empty or null");
 
         this.ID = new StringID();
         this.title = title;
+        this.status = TaskStatus.CREATED;
         this.estimatedHours = estimatedHours;
     }
 
@@ -20,6 +21,7 @@ public class ProjectTask {
     }
 
     public void changeStatus(TaskStatus newStatus) {
+        if (newStatus == null) throw new IllegalArgumentException("New status cannot be null");
         this.status = newStatus;
     }
 
@@ -48,8 +50,8 @@ public class ProjectTask {
 
 //    GETTERS
 
-    public StringID getId() {
-        return ID;
+    public String getId() {
+        return ID.getID();
     }
 
     public String getTitle() {
