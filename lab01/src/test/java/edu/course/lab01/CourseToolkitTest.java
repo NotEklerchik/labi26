@@ -29,6 +29,8 @@ class CourseToolkitTest {
 
         assertTrue(result);
     }
+
+    @Test
     void returnsTrueForNegativeEvenNumber() {
         boolean result = CourseToolkit.isEven(-8);
 
