@@ -1,4 +1,4 @@
-package edu.course.lab03;
+package edu.course.lab03.price.discount;
 
 public class NoDiscount implements IDiscountPolicy {
 
@@ -6,6 +6,6 @@ public class NoDiscount implements IDiscountPolicy {
 
     @Override
     public double apply(double price) {
-        return price * (percent);
+        return price;
     }
 }
