@@ -1,11 +1,8 @@
 package edu.course.lab03.priority;
 
 import edu.course.lab02.ProjectTask;
-import edu.course.lab02.StringID;
 import edu.course.lab03.priority.policy.IPriorityPolicy;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class TaskPrioritizer {
     IPriorityPolicy policy;

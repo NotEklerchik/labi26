@@ -7,8 +7,6 @@ import edu.course.lab03.priority.policy.EffortPriorityPolicy;
 import edu.course.lab03.priority.policy.StatusPriorityPolicy;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskPrioritizerTest {
