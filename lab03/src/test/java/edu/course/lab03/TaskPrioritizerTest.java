@@ -49,6 +49,29 @@ public class TaskPrioritizerTest {
     }
 
     @Test
+    public void testSelectionEffortPriorityPolicy() {
+        TaskPrioritizer tp = new TaskPrioritizer(new StatusPriorityPolicy());
+
+        ProjectTask tv1 = new ProjectTask("123", 123);
+        ProjectTask tv2 = new ProjectTask("123", 12);
+
+        assertEquals(tv2, tp.selectTask(tv1, tv2));
+    }
+
+    @Test
+    public void testSelectionStatusPriorityPolicy() {
+        TaskPrioritizer tp = new TaskPrioritizer(new StatusPriorityPolicy());
+
+        ProjectTask tv1 = new ProjectTask("123", 123);
+        ProjectTask tv2 = new ProjectTask("123", 12);
+
+        tv1.changeStatus(TaskStatus.CREATED);
+        tv2.changeStatus(TaskStatus.PENDING);
+
+        assertEquals(tv1, tp.selectTask(tv1, tv2));
+    }
+
+    @Test
     public void testExceptionThrown() {
         assertThrows(NullPointerException.class, () -> new TaskPrioritizer(null));
     }

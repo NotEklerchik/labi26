@@ -16,4 +16,8 @@ public class TaskPrioritizer {
         return policy.calculatePriority(task);
     }
 
+    public ProjectTask selectTask(ProjectTask task1, ProjectTask task2) {
+        return policy.calculatePriority(task1) < policy.calculatePriority(task2) ? task1 : task2;
+    }
+
 }
