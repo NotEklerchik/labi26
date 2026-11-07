@@ -1,7 +1,8 @@
 package edu.course.lab03;
 
-import edu.course.lab02.ProjectTask;
-import edu.course.lab02.TaskStatus;
+
+import edu.course.lab03.lab02.ProjectTask;
+import edu.course.lab03.lab02.TaskStatus;
 import edu.course.lab03.priority.TaskPrioritizer;
 import edu.course.lab03.priority.policy.EffortPriorityPolicy;
 import edu.course.lab03.priority.policy.StatusPriorityPolicy;

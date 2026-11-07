@@ -1,6 +1,7 @@
 package edu.course.lab03.priority.policy;
 
-import edu.course.lab02.ProjectTask;
+
+import edu.course.lab03.lab02.ProjectTask;
 
 public class StatusPriorityPolicy implements IPriorityPolicy {
 
